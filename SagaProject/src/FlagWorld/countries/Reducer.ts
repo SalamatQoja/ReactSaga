@@ -1,8 +1,5 @@
-import type { AnyAction } from 'redux';
-import {
-    type CountriesState,
-    CountriesActionTypes,
-} from '../countries/Types'
+import type { AnyAction } from 'redux'
+import { type CountriesState,CountriesActionTypes,} from '../countries/Types'
 
 const initialState: CountriesState = {
     countries: [],

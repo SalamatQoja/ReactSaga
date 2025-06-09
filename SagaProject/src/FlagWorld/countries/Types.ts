@@ -12,8 +12,7 @@ export interface Country {
     }
     borders?: string[];
     region: string[];
-    subregion: string[];
-    searchInput: string;
+    subregion: string;
     cca3: string;
 }
 

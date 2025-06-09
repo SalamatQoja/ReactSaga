@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCountriesRequest } from "../countries/Actions";
 import { type AppState } from "../store/store";
@@ -11,6 +11,7 @@ const CountryList = () => {
     const [search, setSearch] = useState("");
     const [modal, setModal] = useState<any>(null);
     const [dark, setDark] = useState(false);
+    const [filterValue, setFilterValue] = useState("");
 
     const handleModal = (country: any) => {
         setModal(country);
@@ -28,14 +29,26 @@ const CountryList = () => {
         setDark(prev => !prev);
     };
 
+    const handleFilter = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setFilterValue(event.target.value);
+    };
+
+    const uniqueSubregions = Array.from(
+        new Set(countries.map(c => c.subregion).filter(Boolean))
+    );
+
     useEffect(() => {
         dispatch(fetchCountriesRequest())
-    }, [dispatch])
+    }, [dispatch]);
 
     if (loading) return <p>Загрузка...</p>
     if (error) return <p>Ошибка: {error}</p>
 
-    const filterCountry = countries.filter(country => country.name.common.toLowerCase().includes(search.toLowerCase()));
+    const filterCountry = countries.filter((country) => {
+        const matchesSearch = country.name.common.toLowerCase().includes(search.toLowerCase());
+        const matchesSubregion = filterValue === "" || country.subregion?.toLowerCase() === filterValue.toLowerCase();
+        return matchesSearch && matchesSubregion;
+    });
 
     if (modal) {
         return (
@@ -56,7 +69,6 @@ const CountryList = () => {
                             <p className="modal-into2"><label>Currencies:</label> {
                                 modal.currencies
                                     ? (Object.values(modal.currencies) as { name: string; symbol: string }[]).map(c => `${c.name} (${c.symbol})`).join(",") : "-"
-
                             }</p>
                         </div>
                     </div>
@@ -68,8 +80,12 @@ const CountryList = () => {
                             modal.borders.map((code: string) => {
                                 const neighbor = countries.find((c: { cca3: string; }) => c.cca3 === code);
                                 return neighbor ? (
-                                    <div key={neighbor.cca3} className="neighbor-country">
-                                        <img src={neighbor.flags.png} alt={neighbor.name.common} className="neighbor-img" />
+                                    <div key={neighbor.cca3} className="neighbor-country" >
+                                        <img src={neighbor.flags.png}
+                                            alt={neighbor.name.common}
+                                            className="neighbor-img"
+                                            onClick={() => handleModal(neighbor)}
+                                        />
                                         <span>{neighbor.name.common}</span>
                                     </div>
                                 ) : null;
@@ -83,15 +99,27 @@ const CountryList = () => {
         )
     }
     return (
+
         <div className="main">
-            <div className={`container ${dark ? 'dark' : ''}`}>
+            <div className="header"></div>
+            <div className={`container  ${dark ? 'dark' : ''}`}>
                 <button onClick={toggleTheme} className="change">ChangeRight</button>
-                <input type="text"
-                    value={search}
-                    onChange={handleChange}
-                    placeholder="writing country"
-                    className="saga-input"
-                />
+                <div className="input-row">
+                    <input type="text"
+                        value={search}
+                        onChange={handleChange}
+                        placeholder="writing country"
+                        className="saga-input"
+                    />
+                    <select value={filterValue} onChange={handleFilter}>
+                        <option value="">Filter</option>
+                        {uniqueSubregions.map((subregion) => (
+                            <option key={subregion} value={subregion}>
+                                {subregion}
+                            </option>
+                        ))}
+                    </select>
+                </div>
                 <div className="inner">
                     {filterCountry.map((country, index) => (
                         <div key={index} className="item" onClick={() => handleModal(country)}>
