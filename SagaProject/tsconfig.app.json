@@ -6,6 +6,7 @@
     "lib": [ "DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "types": ["vite/client", "node"],
 
     /* Bundler mode */
     "moduleResolution": "node",
@@ -25,5 +26,5 @@
     "noUncheckedSideEffectImports": true,
     "isolatedModules": true
   },
-  "include": ["src"]
+  "include": ["src", "vite.config.ts"]
 }
