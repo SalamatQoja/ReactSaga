@@ -22,7 +22,7 @@ export const EmployeeList = () => {
   }, [dispatch]);
 
 
-  if (loading) return <div>Загрузка...</div>;
+  if (loading) return <div>Загрузка....</div>;
   if (error) return <div>Ошибка: {error}</div>;
   if (!recipe.length) return <div>Нет данных</div>;
 
