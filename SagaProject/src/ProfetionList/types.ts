@@ -1,8 +1,7 @@
 export interface NameList {
     id: number;
     name: string;
-    ingredients: string;
-    instructions: string;
+    job: string;
 }
 
 export interface RecipeState {

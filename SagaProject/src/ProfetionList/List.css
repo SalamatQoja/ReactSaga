@@ -1,5 +1,104 @@
-.Sidebar{
-    margin-top: 100px;
-    border-radius: 10px;
-    border: 1px solid red;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: rgb(6, 77, 99);
+}
+
+.main {
+    width: 1100px;
+    margin-top: -39px;
+}
+
+.sidebar {
+    direction: ltr;
+    overflow: scroll;
+    width: 230px;
+    height: 720px;
+    background-color: rgb(245, 244, 248);
+    margin-left: -120px;
+}
+
+.jobs-title {
+    margin-left: 30px;
+    font-size: 20px;
+    text-align: start;
+    direction: ltr;
+    overflow: scroll;
+}
+
+.content {
+    width: 1270px;
+    margin-left: 110px;
+    margin-top: -738px;
+}
+
+.header {
+    width: 1280px;
+    height: 50px;
+    background-color: rgb(79, 24, 130);
+    color: aliceblue;
+}
+
+.header-title {
+    width: 300px;
+    font-size: 20px;
+    margin-right: 1180px;
+    transform: translateY(10px);
+
+}
+
+.title-row {
+    border-top: 2px solid gray;
+    margin-top: 37px;
+
+  
+}
+.yes {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    text-align: start;
+    margin-left: 18px;
+    font-size: 17px;
+}
+
+.employee-item{
+    width: 400px;
+    height: 80px;
+    border-radius: 6px;
+    border: 1px solid gray;
+    box-shadow: 0px 2px 0px 0px ;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.employee-row{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
+.employee-job{
+    margin-top: -6px;
+}
+
+.employee-circle{
+    width: 60px;
+    height: 58px;
+    border-radius: 50%;
+    background-color: rgb(239, 246, 248);
+    margin-left: 20px;
+    font-style: 28px;
+    text-align: center;
+    font-size: 25px;
+    transform: translateY(-13px);
+    
 }

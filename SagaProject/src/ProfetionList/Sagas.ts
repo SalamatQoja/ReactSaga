@@ -4,17 +4,16 @@ import { fetchRecipeFailure, fetchRecipeSuccess } from "./Action";
 
 
 export function fetchRecipeApi(): Promise<NameList[]> {
-    return fetch('https://dummyjson.com/recipes')
+    return fetch('https://684a5d30165d05c5d35872a4.mockapi.io/userJobList')
     .then(res => {
         if(!res.ok) {
             throw new Error (`Oshibka API: ${res.status}`);
         }
         return res.json();
     })
-    .then(data => data.recipes);
 }
 
-function* fetchRecipeSaga() {
+function* fetchRecipeSaga() : Generator<any, void> {
     try{
         const data: NameList[] = yield call(fetchRecipeApi)
         yield put(fetchRecipeSuccess(data))
