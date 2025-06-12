@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 
 body {
@@ -22,17 +22,17 @@ body {
 }
 
 .inner {
-    width: 1300px;
+    width: 1330px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    margin-left: 170px;
+    margin-left: 145px;
     gap: 30px;
     transform: translateY(40px);
 }
 
 .saga-flag {
-    width: 280px;
+    width: 305px;
     height: 180px;
 }
 
@@ -43,8 +43,8 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 280px;
-    height: 430px;
+    width: 305px;
+    height: 420px;
     background-color: white;
     border: none;
     border-radius: 8px;
@@ -78,7 +78,7 @@ body {
 .modal {
     background-color: aliceblue;
     width: 1500px;
-    margin-left: -110px;
+    margin-left: -100px;
     margin-top: -60px;
     height: 800px;
 
@@ -225,4 +225,4 @@ body {
 select{
     border-radius: 6px;
     border: 1px solid rgb(179, 209, 204);
- } */
+ }

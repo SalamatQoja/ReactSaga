@@ -44,7 +44,7 @@ body {
 .header-title {
     width: 300px;
     font-size: 20px;
-    margin-right: 1180px;
+    margin-left: -40px;
     transform: translateY(10px);
 
 }

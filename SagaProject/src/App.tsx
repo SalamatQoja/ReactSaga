@@ -1,10 +1,11 @@
 import "./App.css";
-import { EmployeeList } from "./ProfetionList/NameList";
+import CountryList from "./FlagWorld/countries/CountryLIst";
+
 
 function App() {
   return (
     <>
-    <EmployeeList/>
+    <CountryList/>
     </>
   )
 }

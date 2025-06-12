@@ -5,7 +5,7 @@ import { rootSaga } from "../rootSaga";
 
 const sagaMiddleware = createSagaMiddleware()
 
-export const store = configureStore({
+export const store2 = configureStore({
     reducer: {
         recipe: recipeReducer,
     },
@@ -15,5 +15,5 @@ export const store = configureStore({
 
 sagaMiddleware.run(rootSaga)
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store2.getState>
+export type AppDispatch = typeof store2.dispatch;
