@@ -62,7 +62,7 @@ export const EmployeeList = () => {
                 </div>
               ))}
               {employeesForProfession.length === 0 && (
-                <p>Сотрудников с этой профессией не найдено.</p>
+                <p>Сотрудников с этой профессией не найдено..</p>
               )}
             </div>
           </>
